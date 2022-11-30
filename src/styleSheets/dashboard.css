@@ -1,0 +1,74 @@
+
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: .5rem 1.5rem;
+    text-align: center;
+    margin: 0 auto;
+    padding: 0 0 .3rem 1rem;
+}
+
+.taskOfThisWeek{
+    width: 100%;
+    max-width: 48%;
+    max-height: 48%;
+    box-shadow: rgba(0, 0, 0, 0.16) 0 1px 4px;
+    border-radius: 6px;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+}
+
+.taskOfThisWeek .title {
+    margin: .5rem;
+}
+
+.container .barChart {
+    width: 100%;
+    max-width: 48%;
+    max-height: 48%;
+    box-shadow: rgba(0, 0, 0, 0.16) 0 1px 4px;
+    border-radius: 6px;
+}
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+    cursor: pointer;
+}
+
+table th , td{
+    padding: 8px 2rem;
+    text-align: left;
+
+}
+
+table tr:hover {background-color: #ddd;}
+
+@media (min-width: 991px) and (max-width: 1280px){
+    .container {
+        width: 100%;
+        max-width: 83vw;
+        min-height: 100vh;
+    }
+}
+
+@media (min-width: 840px) and (max-width: 991px){
+    .container {
+        width: 100%;
+        max-width: 76vw;
+        min-height: 100vh;
+        padding: 0 1.5rem .3rem 1.5rem;
+    }
+}
+
+@media (min-width: 678px) and (max-width: 840px){
+    .container {
+        width: 100%;
+        max-width: 74.5vw;
+        min-height: 100vh;
+        padding: 0 1rem .3rem 1rem;
+        gap: .5rem 1rem;
+    }
+}

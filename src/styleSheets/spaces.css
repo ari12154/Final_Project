@@ -1,0 +1,56 @@
+.create-workSpace .newSpace-btn {
+    width: 100%;
+    font-size: medium;
+    text-transform: capitalize;
+    outline: none;
+    color: #aaa;
+    background-color: transparent;
+    border: 1px solid #aaaaaa;
+    border-radius: 6px;
+    transition: .5s;
+}
+
+.create-workSpace .newSpace-btn:hover {
+    color: #333333;
+    background-color: rgba(5,191,218,0.67);
+}
+
+.create-workSpace .workSpaceStyle{
+    width: 30vw;
+    height: 30vw;
+    background-color: lightgrey;
+    position: absolute;
+    left: 40%;
+    top: 20%;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem
+}
+
+.create-workSpace .workSpaceStyle .create-workSpace-header{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    flex-direction: column;
+    height: 15rem;
+    max-height: 15rem;
+}
+
+.create-workSpace .workSpaceStyle form {display: flex; justify-content: center; align-items: center; gap: .5rem}
+
+.create-workSpace .workSpaceStyle form input {
+    outline: none;
+    border: none;
+    background-color: transparent;
+    border-bottom: 1px solid;
+    width: 70%;
+    max-width: 70%;
+}
+
+.create-workSpace li {
+    background-color: transparent;
+    font-family: cursive;
+    color: rgba(60,192,252,0.73);
+    transform: none;
+}

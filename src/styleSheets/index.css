@@ -1,0 +1,208 @@
+
+::-webkit-scrollbar {
+    width: 6px;
+    height: 10px;
+}
+::-webkit-scrollbar-track {
+    background: rgba(0,0,0,.1);
+    border-radius: 3px;
+}
+::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius:3px;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+
+body {
+    margin: 0;
+    font-style: italic;
+    font-family: sans-serif;
+    max-width: 100%;
+    overflow: hidden;
+}
+
+.App {
+    max-width: 100%;
+}
+
+.login form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 1.7rem;
+    border-radius: 6px;
+    width: inherit;
+    margin: 2px auto;
+    padding: 1.5rem;
+
+}
+
+.login-area {
+    width: 100%;
+    max-width: 500px;
+    margin: 5% auto;
+    padding: 0 5px;
+    background-color: rgba(0,0,0,.1);
+    border: 1px solid;
+    border-radius: 8px;
+    box-shadow: rgba(50, 50, 93, 0.25) 0 50px 100px -20px, rgba(0, 0, 0, 0.3) 0 30px 60px -30px;
+}
+
+.login form input {
+    width: 500px;
+    max-width: 95%;
+    height: 2rem;
+    border: 1px solid #8f8f8f;
+    outline: none;
+    border-radius: 6px;
+    background-color: #bebebe;
+}
+
+.login button {
+    width: 100%;
+    max-width: 435px;
+    padding: 5px;
+    background: rgba(6, 113, 215, 0.66);
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1.2rem;
+    font-family: Bahnschrift, sans-serif;
+    transition: .3s;
+}
+
+.login button:hover {
+    background: rgba(25, 133, 238, 0.76);
+}
+
+.navigation {
+    max-height: 100vh;
+    background-color: #333;
+    color: #aaa;
+    max-width: 50%;
+}
+
+.navigation:hover {
+    overflow: auto;
+    overflow-x: hidden;
+    overflow-y: -moz-scrollbars-horizontal;
+    cursor: pointer;
+}
+
+.navigation ul {
+    display: flex;
+    justify-content: right;
+    align-items: center;
+    flex-direction: column;
+    margin: 0;
+    width: 100%;
+    max-width: 100%;
+    padding: 0 35px 0 0;
+}
+
+.navigation ul li{
+    list-style: none;
+    font-size: smaller;
+    padding: 20px 0;
+    width: 100%;
+    cursor: pointer;
+    transition: .3s;
+    display: flex;
+    align-items: end;
+    gap: 12px;
+}
+
+.navigation ul li:hover {
+    background-color: rgba(5,191,218,0.67);
+    color: #333333;
+}
+
+.navigation .link {
+    color: inherit;
+    display: flex;
+    align-items: end;
+    gap: 12px;
+    text-decoration: none;
+}
+
+.navigation ul li .icon {
+    padding-left: 1rem;
+    font-size: 20px;
+}
+
+.showCurrentSpace {
+    display: flex;
+    flex-direction: column;
+    border-radius: 6px;
+    width: 100%;
+    max-width: 84vw;
+    margin: 0 auto;
+    min-height: 44vw;
+    box-shadow: rgba(0, 0, 0, 0.16) 0 1px 4px;
+    overflow: auto;
+    overflow-y: hidden;
+    overflow-x: -moz-hidden-unscrollable;
+}
+
+.currentSpaceHeader {
+    height: 2.8rem;
+    width: 84vw;
+    background-color: rgba(5,191,218,0.67);
+    position: absolute;
+    border-radius: 6px 6px 0 0;
+}
+
+.createTask {
+    padding: 0 1px;
+    color: rgba(0,0,0,.3);
+    cursor: pointer;
+    background-color: transparent;
+    transition: .3s;
+}
+
+.createTask:hover {
+    color: #9393fd;
+}
+
+@media (min-width: 991px) and (max-width: 1280px){
+    .showCurrentSpace {
+        width: 100%;
+        max-width: 84vw;
+        min-height: 100vh;
+    }
+
+    .currentSpaceHeader {
+        max-width: inherit;
+    }
+
+    .navigation ul li {
+        font-size: medium;
+    }
+}
+
+@media (min-width: 840px) and (max-width: 991px){
+    .showCurrentSpace {
+        width: 100%;
+        max-width: 80vw;
+        min-height: 100vh;
+    }
+
+    .currentSpaceHeader {
+       max-width: inherit;
+    }
+}
+
+@media (min-width: 678px) and (max-width: 840px){
+    .showCurrentSpace {
+        width: 100%;
+        max-width: 75.5vw;
+        min-height: 100vh;
+    }
+
+    .currentSpaceHeader {
+       max-width: inherit;
+    }
+}
