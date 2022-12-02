@@ -1,6 +1,6 @@
 import React, {useContext, useEffect, useState} from "react";
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
-import {faAdd, faCaretRight, faChartLine, faGear, faGlobe, faHome} from '@fortawesome/free-solid-svg-icons'
+import {faAdd, faCaretRight, faChartLine, faGlobe, faHome} from '@fortawesome/free-solid-svg-icons'
 import Logo from "./logo";
 import Logout from "./logout";
 import CreateWorkSpace from "../operations/createWorkSpace";
