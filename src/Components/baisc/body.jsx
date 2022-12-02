@@ -1,3 +1,5 @@
+import React from "react";
+
 export default function Body({children, opacityBody}) {
     return (
         <div style={{

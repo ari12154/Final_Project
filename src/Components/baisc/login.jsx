@@ -3,6 +3,7 @@ import {loginProvider} from "../../App";
 import useAxios from "../customHooks/useAxios";
 import axios from "axios";
 import emailjs from "@emailjs/browser"
+import {useNavigate} from "react-router-dom";
 
 const ResetPasswordModal = ({setResetPass}) => {
 
@@ -37,7 +38,7 @@ const LoginForm = ({setAccount}) => {
     const email = useRef()
     const pass = useRef()
     const [resetPass, setResetPass] = useState(false)
-    const {setLogin, setUserId} = useContext(loginProvider)
+    const { setLogin, setUserId } = useContext(loginProvider)
 
     const set_login = async (e) => {
         e.preventDefault()

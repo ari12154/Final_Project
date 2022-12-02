@@ -7,6 +7,7 @@ import '../../styleSheets/react-calander.css'
 import BarChart from "../custom/BarChart";
 import ThisWeekTasks from "../operations/thisWeekTasks";
 import {loginProvider} from "../../App";
+import Navigation from "./navigation";
 
 function Dashboard({spaces}) {
 
@@ -14,15 +15,20 @@ function Dashboard({spaces}) {
     const [userSpaces, setUserSpaces] = useState(spaces)
     useEffect(() => {
         setUserSpaces(spaces.filter(space => space.user === userId))
-    },[])
+    }, [])
 
     return (
         <>
-            <div className='container'>
-                <DoughnutChart spaces={userSpaces}/>
-                <Calendar/>
-                <ThisWeekTasks spaces={userSpaces}/>
-                <BarChart spaces={userSpaces}/>
+            <div style={{display: 'flex', minHeight: '70vh'}}>
+                <Navigation/>
+                <div style={{width: '85vw'}}>
+                    <div className='container'>
+                        <DoughnutChart spaces={userSpaces}/>
+                        <Calendar/>
+                        <ThisWeekTasks spaces={userSpaces}/>
+                        <BarChart spaces={userSpaces}/>
+                    </div>
+                </div>
             </div>
         </>
     );

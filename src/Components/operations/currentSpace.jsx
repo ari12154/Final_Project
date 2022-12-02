@@ -1,8 +1,9 @@
-import React, {useEffect, useState} from 'react';
+import React, {useContext, useEffect, useState} from 'react';
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faEdit, faSave, faTrashCan} from "@fortawesome/free-solid-svg-icons";
 import useAxios from "../customHooks/useAxios";
 import Input from "../elements/input";
+import {loginProvider} from "../../App";
 
 
 export default function CurrentSpace({space, setSpaceName}) {
@@ -10,6 +11,7 @@ export default function CurrentSpace({space, setSpaceName}) {
     const [name, setName] = useState('')
     const [newData, setNewData] = useState(space)
     const [edit, setEdit] = useState(false)
+    const {userId} = useContext(loginProvider)
     const {request} = useAxios()
 
 
@@ -18,7 +20,7 @@ export default function CurrentSpace({space, setSpaceName}) {
     },[name])
 
     const deleteWorkSpace = () => {
-        request('DELETE', `http://localhost:3001/${space._id}`)
+        request('DELETE', `http://localhost:3001/${space._id}/${userId}`)
     }
     const editWorkSpace = (e) => {
         e.preventDefault()

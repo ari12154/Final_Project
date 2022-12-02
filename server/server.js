@@ -53,9 +53,19 @@ app.put('/users/:id', async (req, res, next) => {
 
 })
 
-app.delete('/:id', async (req, res, next) => {
+app.delete('/users/:id', async (req, res, next) => {
     try {
-        let data = await workSpaceModel.deleteOne({_id: req.params.id})
+        const userAfterUpdate = await userModel.deleteOne({_id: req.params.id})
+        res.json(userAfterUpdate)
+    } catch (err) {
+        console.log(err.message)
+    }
+
+})
+
+app.delete('/:id/:user', async (req, res, next) => {
+    try {
+        let data = await workSpaceModel.deleteOne({_id: req.params.id, user: req.params.user})
         res.json(data)
     } catch (err) {
         console.log(err)

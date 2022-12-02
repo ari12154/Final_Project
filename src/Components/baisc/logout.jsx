@@ -5,10 +5,11 @@ import {loginProvider} from "../../App";
 
 export default function Logout() {
 
-    const {setLogin} = useContext(loginProvider)
+    const { setLogin } = useContext(loginProvider)
 
     return <li style={{marginTop: '3rem'}} onClick={() => {
         setLogin(false)
     }}><FontAwesomeIcon className='icon' icon={faArrowRightFromBracket}/>
-        <span>Log-out</span></li>;
+        <span>Log-out</span>
+    </li>;
 }

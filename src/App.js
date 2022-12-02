@@ -1,14 +1,13 @@
 import React, {createContext, useEffect, useState} from "react";
 import Login from "./Components/baisc/login";
-import Header from "./Components/baisc/header";
 import Navigation from "./Components/baisc/navigation";
-import Logout from "./Components/baisc/logout";
 import useLocalStorage from './Components/customHooks/useLocalStorage';
 import useAxios from "./Components/customHooks/useAxios";
 import Body from "./Components/baisc/body";
 import BodyData from "./Components/baisc/bodyData";
 import Dashboard from "./Components/baisc/dashboard";
 import {Route, Routes} from "react-router-dom";
+import Setting from "./Components/baisc/setting";
 
 
 export const loginProvider = createContext()
@@ -67,7 +66,9 @@ function App() {
                                                    spaceName={spaceName}
                                                    setSpaceName={setSpaceName}
                                                />}/>
+                                        <Route path={'/login'} element={<Login/>}/>
                                         <Route path="/Dashboard" element={<Dashboard spaces={spaces}/>}/>
+                                        <Route path="/Setting" element={<Setting spaces={spaces}/>}/>
                                     </Routes>
                                 </Body>
                             </div>
