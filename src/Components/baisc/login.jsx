@@ -3,7 +3,7 @@ import {loginProvider} from "../../App";
 import useAxios from "../customHooks/useAxios";
 import axios from "axios";
 import emailjs from "@emailjs/browser"
-import {useNavigate} from "react-router-dom";
+import useLocalStorage from '../customHooks/useLocalStorage'
 
 const ResetPasswordModal = ({setResetPass}) => {
 

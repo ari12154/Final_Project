@@ -45,7 +45,6 @@ app.put('/users/:id', async (req, res, next) => {
     let dataSaved = req.body
     try {
         const userAfterUpdate = await userModel.updateOne({_id: req.params.id}, dataSaved)
-        console.log(userAfterUpdate)
         res.json(userAfterUpdate)
     } catch (err) {
         console.log(err.message)

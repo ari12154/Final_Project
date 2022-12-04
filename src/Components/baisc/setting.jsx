@@ -21,8 +21,9 @@ function Setting({spaces}) {
         })
     }
 
-    const handleSubmit = (e) => {
+    const updateAccount = async (e) => {
         e.preventDefault()
+        await axios.put(`http://localhost:3001/users/${userId}`, userData)
     }
 
     const deleteAccount = async () => {
@@ -32,6 +33,7 @@ function Setting({spaces}) {
             axios.delete(`http://localhost:3001/${space._id}/${userId}`)
         })
         setLogin(false)
+        localStorage.removeItem('UserToken')
     }
 
     return (
@@ -44,18 +46,32 @@ function Setting({spaces}) {
                 marginLeft: '20%',
                 gap: '.5em'
             }}>
-                <form onSubmit={handleSubmit} style={{lineHeight: '5px'}}>
+                <form onSubmit={updateAccount} style={{lineHeight: '5px'}}>
                     <h1 style={{textAlign: 'left'}}>Update Account</h1>
 
                     <label style={{marginRight: '430px'}}>Name:</label>
-                    <input type="text" placeholder={'Insert new name'} onChange={null} value={userData.name}/>
+                    <input
+                        type="text"
+                        placeholder={'Insert new name'}
+                        value={userData.name}
+                        onChange={e => setUserData({...userData, name: e.target.value})}
+                    />
 
                     <label style={{marginRight: '380px'}}>Email Address:</label>
-                    <input type="text" placeholder={'Insert new Email'} onChange={null} value={userData.email}/>
+                    <input
+                        type="text"
+                        placeholder={'Insert new Email'}
+                        value={userData.email}
+                        onChange={e => setUserData({...userData, email: e.target.value})}
+                    />
 
                     <label style={{marginRight: '410px'}}>Password:</label>
-                    <input type="text" placeholder={'Insert new Password'} onChange={null}
-                           value={userData.password}/>
+                    <input
+                        type="text"
+                        placeholder={'Insert new Password'}
+                        value={userData.password}
+                        onChange={e => setUserData({...userData, password: e.target.value})}
+                    />
 
                     <button style={{width: '50%', marginTop: '5px'}}> Update</button>
                 </form>

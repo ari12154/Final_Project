@@ -18,7 +18,7 @@ function App() {
     const [login, setLogin] = useLocalStorage('login', false)
     const [opacityBody, setOpacityBody] = useState(false)
     const [spaceName, setSpaceName] = useState('')
-    const [userId, setUserId] = useState('')
+    const [userId, setUserId] = useLocalStorage('UserToken')
     const {response, request} = useAxios()
     const [spaces, setSpaces] = useState(response)
 

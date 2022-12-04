@@ -7,9 +7,13 @@ export default function Logout() {
 
     const { setLogin } = useContext(loginProvider)
 
-    return <li style={{marginTop: '3rem'}} onClick={() => {
+    const logout = () => {
         setLogin(false)
-    }}><FontAwesomeIcon className='icon' icon={faArrowRightFromBracket}/>
+        localStorage.removeItem('UserToken')
+    }
+
+    return <li style={{marginTop: '3rem'}} onClick={logout}>
+        <FontAwesomeIcon className='icon' icon={faArrowRightFromBracket}/>
         <span>Log-out</span>
     </li>;
 }
