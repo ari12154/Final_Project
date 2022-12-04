@@ -4,7 +4,7 @@ import axios from "axios";
 
 function Setting({spaces}) {
 
-    const { userId, setLogin } = useContext(loginProvider)
+    const {userId, setLogin} = useContext(loginProvider)
     const [userData, setUserData] = useState({})
 
     useEffect(() => {
@@ -15,7 +15,7 @@ function Setting({spaces}) {
         const {data} = await axios.get('http://localhost:3001/users')
         console.log(data.users)
         data.users.forEach(user => {
-            if (user._id.toString() === userId) {
+            if (userId && user._id.toString() === userId) {
                 setUserData(user)
             }
         })
@@ -23,17 +23,21 @@ function Setting({spaces}) {
 
     const updateAccount = async (e) => {
         e.preventDefault()
-        await axios.put(`http://localhost:3001/users/${userId}`, userData)
+        if (userId) {
+            await axios.put(`http://localhost:3001/users/${userId}`, userData)
+        }
     }
 
     const deleteAccount = async () => {
-        await axios.delete(`http://localhost:3001/users/${userId}`)
+        if (userId) {
+            await axios.delete(`http://localhost:3001/users/${userId}`)
 
-        spaces.forEach(space => {
-            axios.delete(`http://localhost:3001/${space._id}/${userId}`)
-        })
-        setLogin(false)
-        localStorage.removeItem('UserToken')
+            spaces.forEach(space => {
+                axios.delete(`http://localhost:3001/${space._id}/${userId}`)
+            })
+            setLogin(false)
+            localStorage.removeItem('UserToken')
+        }
     }
 
     return (
