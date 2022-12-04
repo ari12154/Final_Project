@@ -1,9 +1,12 @@
 const express = require('express')
 const cors = require('cors')
 const cookieParser = require('cookie-parser')
+const nodemailer = require('nodemailer')
 require('../db/mongoConnect')
+
 const {workSpaceModel} = require('../db/models/workSpaceModel')
 const {userModel} = require('../db/models/userModel')
+
 const app = express()
 
 app.use(express.json())
@@ -12,6 +15,41 @@ app.use(cors())
 
 const PORT = 3001 | process.env.PORT
 
+
+const send_Mail = () => {
+
+    // return new Promise((resolve, reject) => {
+    const Transport = nodemailer.createTransport({
+        service: 'gmail',
+        auth: {
+            user: 'befit208@gmail.com',
+            pass: 'qvmxcgiwwpxlgqkz',
+        }
+    })
+
+
+    const emailOptions = {
+        from: 'befit208@gmail.com',
+        to: 'usastock208@gmail.com',
+        subject: 'Message from yoad',
+        text: 'hello'
+    }
+
+
+    Transport.sendMail(emailOptions, (err, info) => {
+        if (err) {
+            console.log(err)
+            // return reject({message: 'an error has accorded'})
+        } else {
+            console.log('message sent successfuly..')
+            // resolve({message: 'message sent successfuly..'})
+        }
+    })
+    // })
+}
+
+send_Mail()
+
 app.get('/', async (req, res, next) => {
     const spaces = await workSpaceModel.find({})
     res.json({spaces})
@@ -19,7 +57,6 @@ app.get('/', async (req, res, next) => {
 
 app.post('/', async (req, res, next) => {
     console.log(req.body)
-
     let workSpace = new workSpaceModel(req.body);
     await workSpace.save();
     res.json(workSpace)
@@ -34,7 +71,6 @@ app.post('/users', async (req, res, next) => {
     console.log(req.body)
     let newUser = new userModel(req.body);
     let user = await userModel.exists({email: req.body.email})
-
     if (!user) {
         await newUser.save();
     }
