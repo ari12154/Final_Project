@@ -1,46 +1,10 @@
 const express = require('express')
 const {workSpaceModel} = require("../db/models/workSpaceModel");
-// const nodemailer = require("nodemailer");
 const router = express.Router()
 
 
-// const send_Mail = () => {
-//
-//     return new Promise((resolve, reject) => {
-//         const Transport = nodemailer.createTransport({
-//             service: 'gmail',
-//             auth: {
-//                 user: 'befit208@gmail.com',
-//                 pass: 'qvmxcgiwwpxlgqkz',
-//             }
-//         })
-//
-//
-//         const emailOptions = {
-//             from: 'befit208@gmail.com',
-//             to: 'usastock208@gmail.com',
-//             subject: 'Message from yoad',
-//             text: [1,'\n',2,'\n', 3,'\n',4,'\n',5].toString()
-//         }
-//
-//
-//         Transport.sendMail(emailOptions, (err, info) => {
-//             if (err) {
-//                 console.log(err)
-//                 return reject({message: 'an error has accorded'})
-//             } else {
-//                 console.log('message sent successfuly..')
-//                 resolve({message: 'message sent successfuly..'})
-//             }
-//         })
-//     })
-// }
-//
-// send_Mail()
-
 router.get('/', async (req, res, next) => {
     const spaces = await workSpaceModel.find({})
-    console.log(req.headers.cookie)
     res.json({spaces})
 })
 

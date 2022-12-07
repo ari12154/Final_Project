@@ -15,6 +15,10 @@ const userSchema = new Schema({
     password: {
         type: String,
         require: true
+    },
+    notification: {
+        type: Boolean,
+        require: false
     }
 })
 

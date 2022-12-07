@@ -3,7 +3,6 @@ import {loginProvider} from "../../App";
 import useAxios from "../customHooks/useAxios";
 import axios from "axios";
 import emailjs from "@emailjs/browser"
-import useLocalStorage from '../customHooks/useLocalStorage'
 
 const ResetPasswordModal = ({setResetPass}) => {
 
@@ -101,7 +100,8 @@ const RegisterForm = ({setAccount}) => {
         const data = {
             name: name.current.value,
             email: email.current.value,
-            password: pass.current.value
+            password: pass.current.value,
+            notification: false
         }
         if (data.name && data.password && data.email) {
             console.log(data)
